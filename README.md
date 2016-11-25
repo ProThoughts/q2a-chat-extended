@@ -8,7 +8,8 @@ Added features:
 
  - number of new messages in tab title
  - sound notification
- - empty chat button for each user
+ - clear chat button for each user
+ - parsing/embed of youtube and soundcloud links
  - weekly chat history email to admin
  - manual chat history triggered by admin
  
