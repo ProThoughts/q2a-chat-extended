@@ -47,9 +47,9 @@ qa_register_plugin_module('event', 'qa-chat-mailadmin.php', 'qa_chat_mailadmin',
 qa_register_plugin_module('module', 'qa-chat-admin.php', 'qa_chat_admin', 'Chat Settings Admin');
 
 // q2apro custom function
-function q2apro_send_chat_to_admin($mailweekday) 
+function q2apro_send_chat_to_admin($mailweekday=null)
 {
-	if(empty($mailweekday))
+	if(is_null($mailweekday))
 	{
 		$mailweekday = qa_opt('qa_chat_mailadmin_mailweekday');
 	}
