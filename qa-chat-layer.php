@@ -12,7 +12,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 	{
 		parent::head_custom();
 
-		if ( $this->template != 'plugin' || ($this->request != 'chat' && $this->request != 'chathistory') )
+		if ( !in_array($this->template, ['plugin', 'custom']) || ($this->request != 'chat' && $this->request != 'chathistory') )
 			return;
 
 		$hidecss = qa_opt($this->cssopt) === '1';
