@@ -155,7 +155,7 @@ $(document).ready(function(){
 			$('.qa-chat-item-when', $msg).timeago();
 			$('#qa-chat-list').prepend($msg);
 			$msg.slideDown('fast');
-			// eetv: added features
+			// q2apro: added features
 			parse_url_to_img();
 			// add_youtube_thumbnail();
 			parse_youtube_links();

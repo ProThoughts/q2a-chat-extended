@@ -46,7 +46,6 @@ class qa_html_theme_layer extends qa_html_theme_base
 				.qa-chat-item img.chat-avatar-img {
 					padding:0;
 					background:transparent;
-					float:left;
 					margin-right:5px;
 				}
 				.qa-chat-post { 
@@ -64,8 +63,6 @@ class qa_html_theme_layer extends qa_html_theme_base
 					width:100%;
 					max-width: 728px; 
 					margin: 1em 0 1em 10px; 
-					/*background:#FFF;
-					border:1px solid #CCC;*/
 				}
 				.qa-chat-item { 
 					display:table-row;
@@ -78,13 +75,13 @@ class qa_html_theme_layer extends qa_html_theme_base
 				.qa-chat-item:last-child { border-bottom: 1px solid #eee; }
 				.qa-chat-item-avatar { 
 					display:table-cell;
-					width: 40px; 
+					width: 7%; 
+					max-width: 35px; 
 					vertical-align: top;
-					/* TR padding fix */
 				}
 				.qa-chat-item-meta { 
 					display:table-cell;
-					width: 10%; 
+					width: 15%; 
 					max-width: 110px; 
 					padding-right: 20px; 
 					font-size: 11px; 
@@ -93,7 +90,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 				}
 				.qa-chat-item-data { 
 					display:table-cell;
-					width: 75%; 
+					width: 80%; 
 					max-width: 598px; 
 				}
 				.qa-chat-item-avatar,
@@ -164,6 +161,9 @@ class qa_html_theme_layer extends qa_html_theme_base
 					}
 					.qa-chat-item-avatar, .qa-chat-item-meta {
 						padding:0;
+					}
+					.qa-chat-item-avatar {
+						width:40px;
 					}
 					.qa-chat-item {
 						border-top:0;

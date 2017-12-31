@@ -134,6 +134,15 @@ class qa_chat
 			$data['username'] = qa_html( $data['username'] );
 			$data['message'] = $this->format_message( $data['message'] );
 
+			$data['avatarblobid'] = qa_db_read_one_value( qa_db_query_sub(
+									'SELECT avatarblobid FROM ^users WHERE userid = #',
+									$this->user['id']
+									), true);
+			if(is_null($data['avatarblobid']))
+			{
+				$data['avatarblobid'] = qa_opt('avatar_default_blobid');
+			}
+
 			header('Content-Type: text/plain; charset=utf-8');
 			echo "QA_AJAX_RESPONSE\n" . $this->user['id'] . "\n" . json_encode($data);
 			return;
@@ -187,7 +196,7 @@ class qa_chat
 		// regular page request
 		$qa_content = qa_content_prepare();
 		$qa_content['title'] = 'Community-Chat';
-		$qa_content['script_rel'][] = $this->urltoroot.'qa-chat.js?v=1.74';
+		$qa_content['script_rel'][] = $this->urltoroot.'qa-chat.js?v=1.81';
 
 		$admin_button = '';
 		$dbeditlink = qa_opt('qa_chat_mailadmin_dbeditlink');
