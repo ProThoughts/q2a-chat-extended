@@ -216,7 +216,7 @@ class qa_chat
 				<p class="qa-gray-button" id="soundToggle" title="Benachrichtigungston bei eingehender Chat-Nachricht. Hilfreich, wenn du gerade auf anderen Seiten surfst.">Sound ist aus</p>
 				<form method="post" id="qa-chat-form">
 					<input id="message" class="qa-form-tall-text qa-chat-post" type="text" name="ajax_add_message" autocomplete="off" maxlength="800">
-					<input type="submit" class="qa-form-tall-button" value="Senden">
+					<input type="submit" class="qa-form-tall-button qa-chat-sendbutton" value="Senden">
 				</form>
 				<ul id="qa-chat-list"></ul>
 				';
@@ -273,7 +273,7 @@ class qa_chat
 	private function get_messages( $lastid )
 	{
 		$sql =
-			'SELECT p.postid, p.userid, u.handle AS username, p.message AS message,
+			'SELECT p.postid, p.userid, u.handle AS username, u.avatarblobid as avatarblobid, p.message AS message,
 			   p.posted, DATE_FORMAT(p.posted, "%Y-%m-%dT%H:%i:%sZ") AS posted_utc
 			 FROM ^chat_posts p LEFT JOIN ^users u ON u.userid=p.userid
 			 WHERE p.postid > #
@@ -286,6 +286,10 @@ class qa_chat
 		{
 			$m['message'] = $this->format_message( $m['message'] );
 			$m['username'] = qa_html( $m['username'] );
+			if(is_null($m['avatarblobid']))
+			{
+				$m['avatarblobid'] = qa_opt('avatar_default_blobid');
+			}
 		}
 
 		return $messages;
