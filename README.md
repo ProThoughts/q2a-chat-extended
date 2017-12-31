@@ -12,6 +12,8 @@ Added features:
  - parsing/embed of youtube and soundcloud links
  - weekly chat history email to admin
  - manual chat history triggered by admin
+ - avatars in chat
+ - adapts to mobile screen
  
 
 Installation & Usage
