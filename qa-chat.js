@@ -53,12 +53,19 @@ var Tmpl =
 		var service_class = post.userid == 0 ? 'qa-chat-service' : '';
 
 		html += '<li id="qa-chat-id-' + post.postid + '" class="qa-chat-item ' + service_class + '" style="display:none">';
+		html += '  <div class="qa-chat-item-avatar">';
+		html += '     <img class="chat-avatar-img" src="/?qa=image&qa_blobid='+post.avatarblobid+'&qa_size=30" alt="Avatar" />';
+		html += '  </div>';
 		html += '  <div class="qa-chat-item-meta">';
 		html += '    <span class="qa-chat-item-who">';
-		if ( post.userid > 0 )
-			html += '      <a class="qa-user-link" target="_blank" href="https://www.mathelounge.de/user/' + encodeURIComponent( unescapeHtml(post.username) ) + '">' + post.username + '</a>';
+		if(post.userid > 0)
+		{
+			html += '      <a class="qa-user-link" target="_blank" href="/user/' + encodeURIComponent( unescapeHtml(post.username) ) + '">' + post.username + '</a>';
+		}
 		else
-			html += 'KICKBOT';
+		{
+			html += 'KICKBOT';				
+		}
 		html += '    </span><br>';
 		html += '    <span class="qa-chat-item-when" data-utc="' + post.posted_utc + '" title="' + post.posted_utc + '">' + post.posted + '</span>';
 		html += '  </div>';
@@ -133,7 +140,7 @@ $(document).ready(function(){
 	var firstLoad = true; 
 	var startEventsVisible = true;
 	var startEventsCount = 0;
-	var pagetitle = 'Community-Chat - Mathelounge';
+	var pagetitle = 'Community-Chat';
 	var userPostsMessage = false; 
 	var userPostsCount = 0;
 	var soundactive = false;
@@ -225,7 +232,7 @@ $(document).ready(function(){
 	function qa_chat_update_users( users )
 	{
 		if ( !$chat_sidebar ) {
-			$('.qa-sidepanel').prepend( '<div id="qa-chat-sidebar"></div>' );
+			$('.qa-sidepanel:last').prepend( '<div id="qa-chat-sidebar"></div>' );
 		}
 
 		$chat_sidebar = $('#qa-chat-sidebar');

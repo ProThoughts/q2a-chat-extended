@@ -20,15 +20,17 @@
 */
 
 /*
-	Plugin Name: Chat Room
-	Plugin URI: https://github.com/svivian/q2a-chat-room
-	Plugin Description: A simple chat room functionality for Q2A
-	Plugin Version: 1.5
-	Plugin Date: 2012-08-15
-	Plugin Author: Scott Vivian
+	Plugin Name: Chat Room EXTENDED
+	Plugin URI: https://github.com/q2apro/q2a-chat-extended
+	Plugin Description: A chat room functionality for Q2A with special features
+	Plugin Version: 3.0 q2apro
+	Plugin Date: 2017-12-31
+	Plugin Author: Scott Vivian + q2apro
 	Plugin Author URI: http://codelair.co.uk
 	Plugin License: GPLv2
-	Plugin Minimum Question2Answer Version: 1.3
+	Plugin Minimum Question2Answer Version: 1.5
+	
+	NOTE: This is an extended version of Scott's chat plugin by q2apro.
 */
 
 if ( !defined('QA_VERSION') )
