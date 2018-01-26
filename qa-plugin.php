@@ -70,7 +70,7 @@ function q2apro_send_chat_to_admin($mailweekday=null)
 		$chatmessages = qa_db_read_all_assoc(
 						qa_db_query_sub('SELECT p.postid, p.userid, u.handle AS username, p.message AS message,
 									p.posted, DATE_FORMAT(p.posted, "%Y-%m-%dT%H:%i:%sZ") AS posted_utc
-									FROM qa_chat_posts p LEFT JOIN qa_users u ON u.userid=p.userid
+									FROM ^chat_posts p LEFT JOIN ^users u ON u.userid=p.userid
 									WHERE posted BETWEEN DATE_SUB(NOW(), INTERVAL 1 WEEK) and NOW()
 									ORDER BY p.posted DESC
 									') );
