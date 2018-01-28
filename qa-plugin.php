@@ -242,11 +242,6 @@ function q2apro_custom_mailer($params)
 		'subject'   => $params['subject'],
 		'body'      => preg_replace('!\s+!', ' ', strip_tags($params['body'])) // merges whitespaces
 	);
-	// notrack flag
-	if(!isset($params['notrack']))
-	{
-		booker_log_event($senderid, $eventid, $eventname, $paramslog);
-	}
 
 	return $mailer->Send();
 } // end q2apro_custom_mailer
